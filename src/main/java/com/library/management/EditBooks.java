@@ -248,7 +248,7 @@ public class EditBooks extends JInternalFrame {
 					};
 					runner.start();
 				}
-				//if there is a missing data, then display Message Dialog
+				//if there is a missing data, then display Message Dialog yes
 				else
 					JOptionPane.showMessageDialog(null, "Please, write the BookID", "Warning", JOptionPane.WARNING_MESSAGE);
 			}
