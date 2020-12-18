@@ -81,6 +81,7 @@ public class Borrow {
 		}
 		catch (Exception e) {
 			System.out.println("com/library/management/Borrow.java\n" + e.toString());
+			System.out.println("com/library/management/Borrow.java\n" + e.toString());
 		}
 		/***************************************************************
 		 * for making the connection,creating the statement and update *
