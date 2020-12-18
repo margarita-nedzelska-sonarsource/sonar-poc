@@ -32,7 +32,7 @@ pipeline {
     }
     
 	
-    stage('Static Code Analysis') {
+    stage('Sonar Code Analysis') {
           steps {
             script {
               scannerHome = tool 'Wynyard Sonar'
