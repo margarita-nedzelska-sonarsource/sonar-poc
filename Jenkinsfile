@@ -2,14 +2,11 @@ pipeline {
   agent {
     label {
       label "master"
-      customWorkspace "/u01/data/jenkins/workspace/sonar-poc-github/${BRANCH_NAME}"
+      customWorkspace "/u01/data/jenkins/workspace/sonar_poc_GitHub/${BRANCH_NAME}"
     }
   }
   
-  environment {
-    SONAR_CHECK = sh(script: "/u01/scripts/sonar/sonarCheck.sh '$GIT_BRANCH'", returnStdout: true).trim()
-  }
-  
+
   tools {
     maven 'maven3' 
     jdk 'JDK1.8' 
@@ -19,20 +16,7 @@ pipeline {
     disableConcurrentBuilds() 
   }
   
-  stages {
-    stage('User Input'){
-      parallel {
-        stage('Input to Deploy') {
-			steps {
-              script {
-               
-				echo "Sonar Check: ${env.SONAR_CHECK}"
-              }
-			}
-		}
-      }
-    }
-          
+  stages {   
     stage('Build Project'){
       parallel{
         stage('Build Java') {
@@ -49,13 +33,6 @@ pipeline {
     
 	
     stage('Static Code Analysis') {
-		when {
-            anyOf{
-			  branch 'feature/*'
-			  branch 'master'
-			  branch 'PR-*'
-            }
-          }
           steps {
             script {
               scannerHome = tool 'Wynyard Sonar'
