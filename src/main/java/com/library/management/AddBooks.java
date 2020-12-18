@@ -164,7 +164,7 @@ public class AddBooks extends JInternalFrame {
 
             public void actionPerformed(ActionEvent ae) {
 
-                //for checking if there is a missing information
+                //for checking if there is a missing information test
                 if (isCorrect()) {
                     Thread runner = new Thread() {
 
